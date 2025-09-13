@@ -12,7 +12,7 @@ p2: s("hh*8").bank("RolandTR909")
   .late(4)
   .sometimesBy(0.18, x => x.s("ohh").gain(0.42));
 
-p9: n("e3 e3 e3 e3")
+p9: n("g2 g2 g2 g2")
   .s("sine")
   .lpf(180)
   .shape(0.25)
@@ -54,13 +54,13 @@ p6: s("[rim ~] ~ [rim ~] ~")
   .every(32, x => x.stut(4, 1/32, 0.8))
   .late(24);
 
-p5: n("<e3 g3 a#3 g3>/8")
+p5: n("<g3 a#3 g3 a#3>/8")
   .s("supersaw")
   .detune("<0.18 0.28 0.38 0.48>")
   .hpf(180)
   .lpf(perlin.slow(12).range(280, 1800))
   .distort(0.34)
-  .gain(sine.slow(2).range(0.28, 0.35))
+  .gain(sine.slow(2).range(0.25, 0.32))
   .late(16);
 
 p8: s("hh*4")
