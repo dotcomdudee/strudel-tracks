@@ -40,7 +40,7 @@ p4: n("<c2 c2 g1 c2>/2")
   .gain(0.58)
   .late(8);
 
-p7: "<e3 g3 a#3 g3>/8"
+p7: "<g3 a#3 g3 a#3>/8"
   .clip(0.8)
   .struct("x*8")
   .s("sine")
