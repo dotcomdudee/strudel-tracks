@@ -20,7 +20,7 @@ p3: s("~ ~ ~ clap")
 p4: n("<c2 g1 c2 g1>/4")
   .s("saw")
   .lpf(perlin.slow(10).range(110, 220))
-  .shape(0.22)ac
+  .shape(0.22)
   .gain(0.62)
   .late(8);
 
