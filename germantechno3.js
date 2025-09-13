@@ -1,4 +1,4 @@
-setcps(0.62);
+setcps(0.54);
 
 p3: s("~ ~ ~ clap")
   .gain(0.52)

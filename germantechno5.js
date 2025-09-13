@@ -1,4 +1,4 @@
-setcps(0.60); // ≈120 BPM — deeper roll
+setcps(0.54);
 
 p1: s("bd*4").bank("polaris")
   .gain(1.0)
