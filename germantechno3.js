@@ -1,7 +1,7 @@
 setcps(0.54);
 
 p3: s("~ ~ ~ clap")
-  .gain(0.52)
+  .gain(0.40)
   .clip(0.35)
   .every(32, x => x.stut(3, 1/16, 0.9))
   .late(8);
@@ -10,7 +10,8 @@ p2: s("hh*8").bank("RolandTR909")
   .clip( sine.slow(16).range(0.18, 0.35) )
   .gain( perlin.slow(16).range(0.18, 0.28) )
   .late(4)
-  .sometimesBy(0.18, x => x.s("ohh").gain(0.42));
+  .gain(0.12)
+  .sometimesBy(0.18, x => x.s("ohh"));
 
 p9: n("g2 g2 g2 g2")
   .s("sine")
@@ -21,7 +22,7 @@ p9: n("g2 g2 g2 g2")
 p10: s("hh*16")
   .hpf(perlin.slow(8).range(2000, 8000))
   .clip(0.15)
-  .gain(sine.slow(8).range(0.0, 0.25))
+  .gain(sine.slow(8).range(0.05, 0.15))
   .late(56);
 
 p11: s("[rim ~] ~ ~ ~")
@@ -46,7 +47,7 @@ p7: "<g3 a#3 g3 a#3>/8"
   .s("sine")
   .note()
   .gain(sine.slow(2).range(0.68, 0.78))
-  .late(24);
+  .late(24).room(1).roomsize(2);
 
 p6: s("[rim ~] ~ [rim ~] ~")
   .hpf(3000)
@@ -61,6 +62,8 @@ p5: n("<g3 a#3 g3 a#3>/8")
   .lpf(perlin.slow(12).range(280, 1800))
   .distort(0.34)
   .gain(sine.slow(2).range(0.25, 0.32))
+  .room(1)
+  .roomsize(6)
   .late(16);
 
 p8: s("hh*4")
