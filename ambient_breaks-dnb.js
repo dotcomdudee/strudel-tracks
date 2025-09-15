@@ -23,7 +23,7 @@ $: s("~ ~ ~ clap")
   .gain(0.2)
   .clip(0.2)
   .room(2)
-  .every(36, x => x.stut(2, 1/12, 0.5));
+  .every(36, x => x.stut(1, 1/12, 0.2));
 
 $: n("0 3 <5 7> 3 <2 5?> 7 5 3")
   .scale("<d1:major>/2")
@@ -34,8 +34,18 @@ $: n("0 3 <5 7> 3 <2 5?> 7 5 3")
 $: n("<[d3,f#3,a3] [g3,b3,d4] [a3,c#4,e4]>/2")
   .s("sine")
   .lpf(200)
-  .gain(1.1)
+  .gain(1)
 
 p1: "<d3 b#2 d3 b#2>/8".clip(0.68).struct("x*8").s("sine").note().lpf(perlin.slow(8).range(250, 450)).gain(1).color("white");
 
 p2: "<d3 b#2 d3 b#2>/8".clip(0.68).struct("x*8").s("sawtooth").note().lpf(perlin.slow(8).range(150, 600)).gain(0.15).color("white");
+
+p3: n("<d3 b#2 d3 b#2>/8")
+  .s("supersaw")
+  .detune("<0.18 0.28 0.38 0.48>")
+  .hpf(180)
+  .lpf(perlin.slow(12).range(280, 1800))
+  .distort(0.34)
+  .gain(sine.slow(2).range(0.15, 0.18))
+  .room(1)
+  .roomsize(6);
