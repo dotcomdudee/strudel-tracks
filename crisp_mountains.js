@@ -45,4 +45,4 @@ p7: "<d3 b#2 d3 b#2>/8"
   .struct("x*8")
   .s("sine")
   .note()
-  .gain(sine.slow(12).range(0.18, 0.22));
+  .gain(sine.slow(12).range(0.25, 0.30));
