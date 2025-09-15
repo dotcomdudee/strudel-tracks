@@ -51,7 +51,7 @@ let hats4 = s("hh*4")
 
 let stab = n("<g3 a#3 g3 a#3>/8")
   .s("supersaw")
-  .detune("<0.18 0.28 0.38 0.48>")
+  .detune("<0.28 0.37 0.41 0.48>")
   .hpf(180)
   .lpf(perlin.slow(12).range(280, 1800))
   .distort(0.34)
@@ -74,16 +74,16 @@ let sec7 = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4);
 let sec8 = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4, stab);
 let peak = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4, stab, arp);
 
-let totalCycles = 240;
+let totalCycles = 224;
 
 arrange(
-  [8,  sec2],  // 0:00–0:15  + hats16
+  [8,  sec2],  // 0:00–0:15  hats8 + hats16
   [8,  sec3],  // 0:15–0:30  + clap
-  [16, sec5],  // 0:30–1:00  + kick + lowpulse
-  [32, sec8],  // 1:00–1:29  + stab
-  [96, peak],  // 1:29–4:56  BIG ARP PEAK
-  [16, sec8],  // 4:56–5:26  peel arp, keep stab
-  [32, peak],  // 5:26–6:24  MIDDLE-8 (re-intro arp)
+  [16, sec5],  // 0:30–0:59  + kick + lowpulse
+  [32, sec8],  // 0:59–1:58  + stab
+  [96, peak],  // 1:58–4:55  + arp
+  [16, sec8],  // 4:55–5:25  peel arp, keep stab
+  [32, peak],  // 5:25–6:24  m8 - reintro arp
   [8,  sec8],  // 6:24–6:39  peel arp again
-  [8,  sec5]   // 6:39–6:54  back to core groove
-).cpm(cpm).take(240);
+  [8,  sec5]   // 6:39–6:54  back to core and stop
+).cpm(cpm).take(224);
