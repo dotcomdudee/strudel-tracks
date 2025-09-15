@@ -1,3 +1,6 @@
+// MOVEMENT by dotcomdudee (non building version)
+// VANILLA STRUDEL - NO EXTERNAL SAMPLES
+
 setcps(0.54);
 
 p2: s("hh*8").bank("RolandTR909")
@@ -57,3 +60,4 @@ p7: "<g3 a#3 g3 a#3>/8"
   .note()
   .gain(sine.slow(2).range(0.65, 0.70))
   .room(1).roomsize(1)._scope( )._pianoroll();
+
