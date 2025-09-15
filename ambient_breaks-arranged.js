@@ -24,7 +24,7 @@ let clap = s("~ ~ ~ clap")
   .gain(0.20)
   .clip(0.2)
   .room(2)
-  .every(36, x => x.stut(2, 1/12, 0.5));
+  .every(36, x => x.stut(1, 1/12, 0.2));
 
 let bass = n("0 3 <5 7> 3 <2 5?> 7 5 3")
   .scale("<d1:major>/2")
@@ -35,11 +35,21 @@ let bass = n("0 3 <5 7> 3 <2 5?> 7 5 3")
 let chord = n("<[d3,f#3,a3] [g3,b3,d4] [a3,c#4,e4]>/2")
   .s("sine")
   .lpf(200)
-  .gain(1.1)
+  .gain(1)
 
 let arp = "<d3 b#2 d3 b#2>/8".clip(0.68).struct("x*8").s("sine").note().lpf(perlin.slow(8).range(250, 450)).gain(1).color("white");
 
 let arp2 = "<d3 b#2 d3 b#2>/8".clip(0.68).struct("x*8").s("sawtooth").note().lpf(perlin.slow(8).range(150, 600)).gain(0.15).color("white");
+
+let supersaw = n("<d3 b#2 d3 b#2>/8")
+  .s("supersaw")
+  .detune("<0.18 0.28 0.38 0.48>")
+  .hpf(180)
+  .lpf(perlin.slow(12).range(280, 1800))
+  .distort(0.34)
+  .gain(sine.slow(2).range(0.15, 0.18))
+  .room(1)
+  .roomsize(6);
 
 let sec1 = bd;
 let sec2 = stack(bd, sd);
@@ -49,11 +59,11 @@ let sec5 = stack(bd, sd, white, rim, hh16);
 let sec6 = stack(bd, sd, white, rim, hh16, hh8);
 let sec7 = stack(bd, sd, white, rim, hh16, hh8, clap);
 let sec8 = stack(bd, sd, white, rim, hh16, hh8, clap, bass);
-let sec9 = stack(bd, sd, white, rim, hh16, hh8, clap, chord);
-let sec10 = stack(bd, sd, white, rim, hh16, hh8, clap, chord, arp);
-let sec11 = stack(bd, sd, white, rim, hh16, hh8, clap, chord, arp, arp2);
+let sec9 = stack(bd, sd, white, rim, hh16, hh8, clap, chord, supersaw);
+let sec10 = stack(bd, sd, white, rim, hh16, hh8, clap, chord, arp, supersaw);
+let sec11 = stack(bd, sd, white, rim, hh16, hh8, clap, chord, arp, arp2, supersaw);
 
-let totalCycles = 264;
+let totalCycles = 296;
 
 arrange(
   [4,  sec1],   // 0:00–0:06  bd only
@@ -67,11 +77,11 @@ arrange(
   [16, sec9],   // 1:18–1:40  + chord (core up to chord)
   [96, sec10],  // 1:40–3:54  + arp (full stack)
   [16, sec8],   // 3:54–4:16  peel arp → back to core (to chord)
-  [32, sec11],  // 4:16–4:54  re-add arp (full stack)
-  [16, sec9],   // 4:54–5:16  peel arp → core (to chord)
-  [8,  sec8],   // 5:16–5:27  peel chord
-  [8,  sec7],   // 5:27–5:38  → clap on top of hats
-  [8,  sec6],   // 5:38–5:49  peel clap → hats + rim/white/sd/bd
-  [8,  sec5],   // 5:49–6:00  peel hh8 → hh16 + core
-).take(264);
+  [64, sec11],  // 4:16–5:16  re-add arp (full stack)
+  [16, sec9],   // 5:16–5:27  peel arp → core (to chord)
+  [8,  sec8],   // 5:27–5:38  peel chord
+  [8,  sec7],   // 5:38–5:49  → clap on top of hats
+  [8,  sec6],   // 5:49–6:00  peel clap → hats + rim/white/sd/bd
+  [8,  sec5],   // 6:00–6:11  peel hh8 → hh16 + core
+).take(296);
 
