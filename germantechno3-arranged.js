@@ -1,5 +1,3 @@
-// MOVEMENT by Ashley
-
 let cpm = 130/4;
 
 let hats8 = s("hh*8").bank("RolandTR909")
@@ -87,4 +85,5 @@ arrange(
   [24, peak],  // MIDDLE-8: reintroduce arp
   [8,  sec8],  // peel arp again
   [8,  sec5]   // back to core groove, then out
+
 ).cpm(cpm).take(192);
