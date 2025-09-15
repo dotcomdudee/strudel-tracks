@@ -14,10 +14,10 @@ p10: s("hh*16")
 p3: s("~ ~ ~ clap")
   .gain(0.40)
   .clip(0.35)
-  .every(32, x => x.stut(3, 1/16, 0.9));
+  .every(32, x => x.stut(3, 1/16, 0.9))._scope( );
 
 p1: s("bd*4").bank("polaris")
-  .gain(0.6).distort(0.22);
+  .gain(0.6).distort(0.22)._scope( );
 
 p9: n("g2 g2 g2 g2")
   .s("sine")
@@ -48,11 +48,12 @@ p5: n("<g3 a#3 g3 a#3>/8")
   .distort(0.34)
   .gain(sine.slow(2).range(0.28, 0.35))
   .room(1)
-  .roomsize(6);
+  .roomsize(6)._scope( );
 
 p7: "<g3 a#3 g3 a#3>/8"
   .clip(0.68)
   .struct("x*8")
   .s("sine")
   .note()
-  .room(1).roomsize(1);
+  .gain(sine.slow(2).range(0.65, 0.70))
+  .room(1).roomsize(1)._scope( )._pianoroll();
