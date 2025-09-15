@@ -1,3 +1,6 @@
+// MOVEMENT by dotcomdudee
+// VANILLA STRUDEL - NO EXTERNAL SAMPLES
+
 let cpm = 130/4;
 
 let hats8 = s("hh*8").bank("RolandTR909")
@@ -57,7 +60,7 @@ let stab = n("<g3 a#3 g3 a#3>/8")
   .roomsize(6);
 
 let arp = "<g3 a#3 g3 a#3>/8"
-  .clip(0.70)
+  .clip(0.68)
   .struct("x*8")
   .s("sine")
   .note()
@@ -71,19 +74,16 @@ let sec7 = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4);
 let sec8 = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4, stab);
 let peak = stack(hats8, hats16, clap, kick, lowpulse, rim1, rim2, hats4, stab, arp);
 
-let totalCycles = 192;
+let totalCycles = 240;
 
 arrange(
-  [8,  sec1],  // hats8
-  [8,  sec2],  // + hats16
-  [8,  sec3],  // + clap
-  [16, sec5],  // + kick + lowpulse
-  [8, sec7],  // + rims + hats4
-  [16, sec8],  // + stab
-  [72, peak],  // big arp peak
-  [16, sec8],  // peel arp, keep stab
-  [24, peak],  // MIDDLE-8: reintroduce arp
-  [8,  sec8],  // peel arp again
-  [8,  sec5]   // back to core groove, then out
-
-).cpm(cpm).take(192);
+  [8,  sec2],  // 0:00–0:15  + hats16
+  [8,  sec3],  // 0:15–0:30  + clap
+  [16, sec5],  // 0:30–1:00  + kick + lowpulse
+  [32, sec8],  // 1:00–1:29  + stab
+  [96, peak],  // 1:29–4:56  BIG ARP PEAK
+  [16, sec8],  // 4:56–5:26  peel arp, keep stab
+  [32, peak],  // 5:26–6:24  MIDDLE-8 (re-intro arp)
+  [8,  sec8],  // 6:24–6:39  peel arp again
+  [8,  sec5]   // 6:39–6:54  back to core groove
+).cpm(cpm).take(240);
