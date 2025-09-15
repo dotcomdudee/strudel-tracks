@@ -1,5 +1,5 @@
 // Crisp Mountains - Clear Mountain Ambient
-setcps(0.54);
+setcps(0.52);
 
 $: s("hh*8").bank("RolandTR909")
   .clip(sine.slow(20).range(0.12, 0.25))
@@ -49,3 +49,4 @@ p5: "<d3 b#2 d3 b#2>/8"
   .s("sine")
   .note()
   .gain(sine.slow(12).range(0.25, 0.30));
+
