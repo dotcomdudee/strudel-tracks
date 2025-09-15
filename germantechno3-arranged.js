@@ -20,7 +20,7 @@ let clap = s("~ ~ ~ clap")
   .every(32, x => x.stut(3, 1/16, 0.9));
 
 let kick = s("bd*4").bank("polaris")
-  .gain(0.6).distort(0.2);
+  .gain(0.6).distort(0.2)._scope( );
 
 let lowpulse = n("g2 g2 g2 g2")
   .s("sine")
@@ -57,14 +57,15 @@ let stab = n("<g3 a#3 g3 a#3>/8")
   .distort(0.34)
   .gain(sine.slow(2).range(0.28, 0.35))
   .room(1)
-  .roomsize(6);
+  .roomsize(6)._scope( );
 
 let arp = "<g3 a#3 g3 a#3>/8"
   .clip(0.68)
   .struct("x*8")
   .s("sine")
   .note()
-  .room(1).roomsize(1);
+  .gain(sine.slow(2).range(0.65, 0.70))
+  .room(1).roomsize(1)._pianoroll();
 
 let sec1 = hats8;
 let sec2 = stack(hats8, hats16);
