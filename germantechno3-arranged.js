@@ -16,7 +16,7 @@ let hats16 = s("hh*16")
 
 let clap = s("~ ~ ~ clap")
   .gain(0.40)
-  .clip(0.35)
+  .clip(0.30)
   .every(32, x => x.stut(3, 1/16, 0.9));
 
 let kick = s("bd*4").bank("polaris")
@@ -55,7 +55,7 @@ let stab = n("<g3 a#3 g3 a#3>/8")
   .hpf(180)
   .lpf(perlin.slow(12).range(280, 1800))
   .distort(0.34)
-  .gain(sine.slow(2).range(0.25, 0.32))
+  .gain(sine.slow(2).range(0.28, 0.35))
   .room(1)
   .roomsize(6);
 
