@@ -8,7 +8,7 @@ p1: n("c2 ~ ~ ~ ~ ~ ~ ~")
   .room(1)
   .roomsize(3);
 
-p2: n("~ ~ ~ ~ e3 ~ ~ ~")
+p2: n("~ ~ ~ ~ e3 ~ g3 ~")
   .s("sine")
   .lpf(1200)
   .gain(0.6)
@@ -16,23 +16,11 @@ p2: n("~ ~ ~ ~ e3 ~ ~ ~")
   .room(1)
   .roomsize(3);
 
-p3: n("~ ~ ~ ~ ~ ~ g3 ~")
-  .s("sine")
-  .lpf(1600)
-  .gain(0.5)
-  .late(16);
-
-p4: n("~ ~ ~ ~ ~ ~ ~ c4")
+p4: n("c1 ~ ~ ~ ~ ~ ~ c4")
   .s("sine")
   .lpf(2000)
   .gain(0.4)
   .late(24);
-
-p5: n("c1 ~ ~ ~ ~ ~ ~ ~")
-  .s("sine")
-  .lpf(400)
-  .gain(0.9)
-  .late(32);
 
 p6: n("c1 ~ c1 ~ c1 ~ c1 ~")
   .s("sine")
@@ -50,4 +38,11 @@ $: s("sd:2").beat("4,12,14?",16).gain(.3).lpf(400)
 $: s("hh*16")
   .lpf(perlin.slow(12).range(100, 1000))
   .clip(0.08)
-  .gain(sine.slow(12).range(0.3, 0.5));
+  .gain(sine.slow(12).range(0.2, 0.4));
+
+p7: "<d3 b#2 d3 b#2>/8"
+  .clip(0.68)
+  .struct("x*8")
+  .s("sine")
+  .note()
+  .gain(sine.slow(12).range(0.18, 0.22));
