@@ -9,12 +9,12 @@ $: s("hh*8").bank("RolandTR909")
 $: s("sd:2").beat("4,12,14?",16).gain(.3).lpf(400)
 
 $: s("hh*16")
-  .lpf(perlin.slow(12).range(100, 1000))
+  .lpf(perlin.slow(16).range(100, 1000))
   .clip(0.08)
-  .gain(sine.slow(12).range(0.2, 0.4));
+  .gain(sine.slow(16).range(0.2, 0.45));
 
 $: s("bd*4").bank("polaris")
-  .gain(0.1);
+  .gain(0.1).room(1);
 
 p1: n("c2 ~ ~ ~ ~ ~ ~ ~")
   .s("sine")
@@ -43,10 +43,15 @@ p4: n("c1 ~ c1 ~ c1 ~ c1 ~")
   .gain(0.9)
   .late(32);
 
+p6: n("c2 ~ ~ ~ c2 ~ c2 ~")
+  .s("sine")
+  .lpf(400)
+  .gain(0.7)
+  .late(32)
+
 p5: "<d3 b#2 d3 b#2>/8"
   .clip(0.68)
   .struct("x*8")
   .s("sine")
   .note()
   .gain(sine.slow(12).range(0.25, 0.30));
-
